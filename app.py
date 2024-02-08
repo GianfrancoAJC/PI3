@@ -6,6 +6,13 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, r2_score
 import matplotlib.pyplot as plt
 
+# Intervalo de confianza
+def IC(predicciones, y_test, prediccion):
+    error = predicciones - y_test
+    desviacion = error.std()
+    IC = [prediccion - 1.96 * desviacion / len(error)**(1/2), prediccion + 1.96 * desviacion / len(error)**(1/2)]
+    return IC
+
 # Carga de datos
 datos = pd.read_excel("traindata.xlsx")
 # División de los datos en características (X) y variable objetivo (y)
@@ -63,4 +70,29 @@ v11 = float(input("Ingrese si ha asistido a alguna charla sobre ahorro energéti
 nueva_entrada = pd.DataFrame([[v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11]], columns=X.columns)
 nueva_entrada_poly = poly_features.transform(nueva_entrada)
 prediccion = modelo.predict(nueva_entrada_poly)
-print("Su consumo eléctrico es de: ", prediccion, "kWh")
+ic = IC(predicciones, y_test, prediccion)
+print("Su consumo eléctrico per cápita, con una confianza del 95%, se encuentra en el siguiente intervalor de confianza: [", ic[0][0], "-",ic[1][0],"]", "kWh")
+print("Su consumo eléctrico total, con una confianza del 95%, se encuentra en el siguiente intervalor de confianza: [", ic[0][0]*v1, "-",ic[1][0]*v1, "]", "kWh")
+if(prediccion < 50):
+    print("Usted tiene un consumo eléctrico muy bajo, felicidades por su ahorro energético.")
+else:
+    print("Si usted desea mejorar su consumo puede aplicar las siguientes recomendaciones")
+    if(v3 < 4):
+        print("1. Aprender más sobre el ahorro energético.")
+    if(v4 > 3 + v1*3):
+        print("2. Reducir la cantidad de electrodomesticos que usa en", v4 - 3 - v1*3, ".")
+    if(v5 > 5 + v1*3):
+        print("3. Reducir la cantidad de focos que posee en su hogar en", v5 - 5 - v1*3, ".")
+    if(v6 == 1):
+        print("4. Cambiar sus focos incandescentes por focos ahorradores.")
+    if(v7 < 4):
+        print("5. Realizar mantenimiento a sus electrodomésticos.")
+    if(v8 == 3):
+        print("6. Cambiar el horario de consumo de electricidad.")
+    if(v9 == 1):
+        print("7. Desconectar los artefactos en su casa.")
+    if(v10 == 1 and v1 < 3):
+        print("8. Considerar alternativas a usar una terma.")
+    if(v11 == 0):
+        print("9. Asistir a una charla sobre ahorro energético.")
+print("Gracias por utilizar el MVP de nuestra calculadora online energética.")
