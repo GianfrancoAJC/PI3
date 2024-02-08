@@ -40,14 +40,11 @@ plt.ylabel("Predicciones")
 plt.title("Predicciones vs. Valores reales")
 plt.show()
 
-coeficientes = modelo.coef_
-intercepto = modelo.intercept_
 # Ecuación de la regresión
 nombres_variables = poly_features.get_feature_names_out()
 ecuacion = 'y = {:.2f}'.format(modelo.intercept_)
 for i, coef in enumerate(modelo.coef_):
         ecuacion += ' + {:.2f} * {}'.format(coef, nombres_variables[i])
-
 print('Ecuación de regresión:', ecuacion)
 
 # MVP
