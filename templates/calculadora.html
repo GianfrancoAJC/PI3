@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora - Eficiencia Energética</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Agrega cualquier otro estilo personalizado aquí -->
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Calculadora de Consumo Eléctrico</h1>
+        <form action="/calcular" method="POST">
+            <div class="form-group">
+                <label for="v1">¿Cuantas personas viven en tu hogar?</label>
+                <input type="number" class="form-control" id="v1" name="v1" required>
+            </div>
+            <div class="form-group">
+                <label for="v2">¿Cuantas horas al dia usas electricidad?</label>
+                <input type="number" class="form-control" id="v2" name="v2" required>
+            </div>
+            <div class="form-group">
+                <label for="v3">¿Cuanto consideras que sabes sobre el ahorro energético? Del 1 al 5, siendo 1 no saber nada y 5 saber consistentemente sobre el tema.</label>
+                <input type="number" class="form-control" id="v3" name="v3" required>
+            </div>
+            <div class="form-group">
+                <label for="v3">¿Cuántos electrodomésticos tienes en tu hogar?</label>
+                <input type="number" class="form-control" id="v4" name="v4" required>
+            </div>
+            <div class="form-group">
+                <label for="v3">¿Cuantos focos tienen en tu hogar?</label>
+                <input type="number" class="form-control" id="v5" name="v5" required>
+            </div>
+            <div class="form-group">
+                <label for="v3">¿La mayoria de tus focos son incandescentes?</label>
+                <input type="number" class="form-control" id="v6" name="v6" required>
+            </div>
+            <div class="form-group">
+                <label for="v3">¿Con que frecuencia realizas mantenimiento a tus electrodomésticos?</label>
+                <input type="number" class="form-control" id="v7" name="v7" required>
+            </div>
+            <div class="form-group">
+                <label for="v3">¿En que horario consideras que usan más electricidad?</label>
+                <input type="number" class="form-control" id="v8" name="v8" required>
+            </div>
+            <div class="form-group">
+                <label for="v3">¿En tu hogar desconectan los artefactos después de usarlos?</label>
+                <input type="number" class="form-control" id="v9" name="v9" required>
+            </div>
+            <div class="form-group">
+                <label for="v3">¿Utilizas terma eléctrica en tu hogar?</label>
+                <input type="number" class="form-control" id="v10" name="v10" required>
+            </div>
+            <div class="form-group">
+                <label for="v3">¿Has asistido a alguna charla sobre consumo consciente de energía?</label>
+                <input type="number" class="form-control" id="v11" name="v11" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Calcular</button>
+        </form>
+        {% if prediccion %}
+        <div class="mt-5">
+            <h2>Predicción de Consumo</h2>
+            <p>Predicción: {{ prediccion }}</p>
+            <p>Intervalo de Confianza: {{ ic }}</p>
+        </div>
+        {% endif %}
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
