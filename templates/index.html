@@ -3,16 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio - Eficiencia Energética</title>
+    <title>Inicio - Energygrid</title>
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- Agrega cualquier otro estilo personalizado aquí -->
+    <style>
+        /* Estilos personalizados */
+        /* Estilos socialbotton */
+        .social-icons {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .social-icons li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .social-icons li:last-child {
+            margin-right: 0;
+        }
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            border-radius: 50%;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 20px;
+            transition: background-color 0.3s ease;
+        }
+        .social-icons a:hover {
+            background-color: #0056b3;
+        }
+        /* Estilos para el jumbotron */
+        .jumbotron {
+            background-color: #f8f9fa;
+            padding: 2rem;
+            margin-top: 50px;
+            text-align: center;
+        }
+        .lead {
+            font-size: 1.25rem;
+            margin-top: 20px;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+        /* Estilos para la banda de imágenes */
+        .carousel-item img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+    </style>
 </head>
 <body>
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Energygrid</a>
+    </nav>
+
+    <!-- Contenido principal -->
     <div class="container">
-        <h1 class="mt-5">Bienvenido a nuestro sitio de Eficiencia Energética</h1>
-        <p class="lead">Aquí podrás calcular el consumo eléctrico de tu hogar.</p>
-        <a href="/calculadora" class="btn btn-primary">Ir a la calculadora</a>
+        <!-- Carrusel de imágenes relacionadas con la eficiencia energética -->
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="/static/Fondo1.png" class="d-block w-100" alt="Imagen 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="/static/Fondo2.jpg" class="d-block w-100" alt="Imagen 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="/static/Fondo3.jpg" class="d-block w-100" alt="Imagen 3">
+                </div>
+            </div>
+        </div>
+
+        <!-- Jumbotron con mensaje de bienvenida -->
+        <div class="jumbotron">
+            <h1 class="display-4">¡Bienvenido a Energygrid!</h1>
+            <p class="lead">Tu socio en la búsqueda de la eficiencia energética.</p>
+            <hr class="my-4">
+            <p>Calcula el consumo eléctrico de tu hogar con nuestra herramienta.</p>
+            <a class="btn btn-primary btn-lg" href="/calculadora" role="button">Ir a la calculadora</a>
+        </div>
     </div>
+    <!-- Redes Sociales -->
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2>Síguenos en nuestras redes sociales</h2>
+            </div>
+        <ul class="social-icons">
+            <li><a href="https://twitter.com/Energygrid_5" target="_blank"></a></li>
+            <li><a href="https://www.facebook.com/Energygrid_5" target="_blank"></a></li>
+            <li><a href="https://www.instagram.com/Energygrid_5" target="_blank"></a></li>
+            <!-- Redes sociales por crear -->
+        </ul>
+    </div>
+    <!-- Scripts de Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

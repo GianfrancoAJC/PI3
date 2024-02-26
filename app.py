@@ -1,3 +1,4 @@
+# Librearias empleadas
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import PolynomialFeatures
@@ -98,12 +99,12 @@ class Traindata(db.Model):
     def __repr__(self):
         return '<Registro %r>' % (self.id, self.v1, self.v2, self.v3, self.v4, self.v5, self.v6, self.v7, self.v8, self.v9, self.v10, self.v11)
 
-#End Models --------------------------------------------------
+# End Models --------------------------------------------------
     
 with app.app_context():
     db.create_all()
 
-# Routes
+# Endpoints
 
 @app.route('/', methods=['GET'])
 def index():
@@ -131,12 +132,12 @@ def calcular():
         nueva_entrada_poly = poly_features.transform(nueva_entrada)
         prediccion = modelo.predict(nueva_entrada_poly)
         ic = IC(predicciones, y_test, prediccion)
-        return render_template('calculadora.html', prediccion=prediccion, ic=ic)
+        pf = float(prediccion[0])*int(v1)
+        return render_template('resultados.html', prediccion=prediccion, ic=ic, pf = pf)
     except Exception as e:
         print(e)
         print(sys.exc_info())
         return jsonify({'success': False, 'message': 'Error in the calculation'}), 500
-
     finally:
         db.session.close()
 
