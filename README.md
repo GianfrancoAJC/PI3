@@ -25,7 +25,7 @@ Energygrid es una aplicación web diseñada en el marco del curso de Proyectos I
 1. Clona el repositorio:
 
 ```bash
-git clone https://github.com/CJGianfranco/pi3.git
+git clone https://github.com/GianfrancoAJC/pi3.git
 ```
 
 2. Instala las dependencias:
