@@ -20,12 +20,33 @@ Energygrid es una aplicación web diseñada en el marco del curso de Proyectos I
 - HTML
 - CSS
 
+
+## Estructura del Proyecto
+
+```
+Energygrid/
+│
+├── app.py                    # Archivo principal de la aplicación Flask
+├── traindata.xlsx            # Archivo xls con los datos de entrenamiento del modelo de regresión
+├── requirements.txt          # Archivo de requerimientos para instalar las dependencias
+├── static/                   # Directorio de archivos estáticos
+│   ├── favicon.ico           # Ícono de la página
+│   ├── Fondo1.png           # Imagen 1 para el carrusel de imágenes
+│   ├── Fondo2.jpg           # Imagen 2 para el carrusel de imágenes
+│   └── Fondo3.jpg           # Imagen 3 para el carrusel de imágenes
+├── templates/                # Directorio de plantillas HTML
+│   ├── index.html           # Página de inicio
+│   ├── calculadora.html     # Página de la calculadora de consumo eléctrico
+│   └── resultados.html      # Página de resultados del cálculo de consumo eléctrico
+└── README.md                 # Archivo de documentación del proyecto
+```
+
 ## Instalación
 
 1. Clona el repositorio:
 
 ```bash
-git clone https://github.com/CJGianfranco/pi3.git
+git clone https://github.com/GianfrancoAJC/pi3.git
 ```
 
 2. Instala las dependencias:
