@@ -133,7 +133,23 @@ def calcular():
         prediccion = modelo.predict(nueva_entrada_poly)
         ic = IC(predicciones, y_test, prediccion)
         pf = float(prediccion[0])*int(v1)
-        return render_template('resultados.html', prediccion=prediccion, ic=ic, pf = pf)
+        recomendaciones = []
+        if pf > int(v1)*50:
+            if int(v4) > 5 + int(v1)*3:
+                recomendaciones.append('Se recomienda reducir la cantidad de electrodomésticos que se usan')
+            if int(v5) > 5 + int(v1)*2:
+                recomendaciones.append('Se recomienda reducir la cantidad de focos que se usan')
+            if int(v6) == 1:
+                recomendaciones.append('Se recomienda cambiar sus focos a ahorradores')
+            if int(v8) == 3:
+                recomendaciones.append('Se recomienda reducir su actividad durante la noche')
+            if int(v10) == 1:
+                recomendaciones.append('Se recomienda reducir el uso de la terma')
+            if int(v11) == 0:
+                recomendaciones.append('Se recomienda asistir a alguna charla sobre el ahorro de energía')
+        else:
+            recomendaciones.append('Ninguna recomendación generada. Su consumo es adecuado, ¡Felicidades!')
+        return render_template('resultados.html', prediccion=prediccion, ic=ic, pf = pf, recomendaciones = recomendaciones)
     except Exception as e:
         print(e)
         print(sys.exc_info())

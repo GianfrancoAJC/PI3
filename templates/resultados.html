@@ -27,6 +27,21 @@
             background-color: #0056b3;
             border-color: #0056b3;
         }
+        /* Estilos para las recomendaciones */
+        .recomendaciones {
+            margin-top: 30px;
+        }
+        .recomendaciones h3 {
+            margin-bottom: 20px;
+        }
+        .recomendaciones ul {
+            list-style-type: decimal;
+            padding-left: 20px;
+        }
+        .recomendaciones li {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
     </style>
 </head>
 <body>
@@ -68,7 +83,16 @@
                 {% endif %}
                 <p class="text-muted">* Estos costos son estimados y pueden variar según el proveedor de energía y otros factores. (datos extraidos de Infobae)</p>
             </div>
-            {% endif %}            
+            {% endif %}
+            <!-- Aquí van las recomendaciones -->
+            <div class="recomendaciones">
+                <h3>Aquí tiene algunas recomendaciones</h3>
+                <ul>
+                    {% for recomendacion in recomendaciones %}
+                    <li>{{ recomendacion }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
     </div>
 
@@ -78,3 +102,4 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+
